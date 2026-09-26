@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>AI 绘画编辑器</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="toolbar">
+      <button data-tool="brush" class="active">画笔</button>
+      <button data-tool="eraser">橡皮</button>
+      <input type="color" id="color" value="#333333">
+      <input type="range" id="size" min="1" max="40" value="4">
+      <span class="stage-label">阶段: <b id="stage">草图</b></span>
+      <select id="stage-select">
+        <option>草图</option><option>线稿</option><option>上色</option><option>细化</option><option>完成</option>
+      </select>
+    </div>
+    <div class="ai-actions">
+      <button id="btn-assess">让 AI 看看</button>
+      <button id="btn-generate">生成参考</button>
+      <button id="btn-undo-ai" disabled>撤销 AI 修改</button>
+    </div>
+  </header>
+  <main>
+    <div id="canvas-wrap">
+      <canvas id="user" width="800" height="600"></canvas>
+      <canvas id="ghost" width="800" height="600" style="opacity:0.45"></canvas>
+      <canvas id="overlay" width="800" height="600"></canvas>
+      <div id="focus-dot" class="focus-dot hidden"></div>
+    </div>
+    <aside id="sidebar" class="hidden">
+      <h3 id="side-title">AI 评估</h3>
+      <div id="side-body"></div>
+      <div class="side-note">AI 建议不会自动修改画面，所有操作可撤销。</div>
+    </aside>
+  </main>
+  <footer>
+    <input id="gen-prompt" placeholder="描述想要的画面（用于生成参考）..." />
+    <label><input type="checkbox" id="use-real"> 真实 AI（需后端配置）</label>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

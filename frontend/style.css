@@ -1,0 +1,25 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f4f5f7; color: #222; }
+#app { display: flex; flex-direction: column; height: 100vh; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fff; border-bottom: 1px solid #ddd; }
+.toolbar, .ai-actions { display: flex; gap: 8px; align-items: center; }
+button { padding: 6px 10px; border: 1px solid #ccc; background: #fff; cursor: pointer; border-radius: 4px; }
+button.active { background: #333; color: #fff; }
+main { flex: 1; display: flex; overflow: hidden; }
+#canvas-wrap { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; padding: 12px; }
+#user, #ghost, #overlay { position: absolute; border: 1px solid #ccc; background: #fff; }
+#user { z-index: 1; }
+#ghost { z-index: 2; pointer-events: none; }
+#overlay { z-index: 3; pointer-events: none; }
+.focus-dot { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: rgba(220,50,50,.85); z-index: 4; transform: translate(-50%,-50%); }
+#sidebar { width: 300px; background: #fff; border-left: 1px solid #ddd; padding: 12px; overflow-y: auto; }
+#sidebar.hidden { display: none; }
+.issue { padding: 8px; margin: 6px 0; border-radius: 6px; background: #f6f7f9; }
+.issue.info { border-left: 3px solid #4a90d9; }
+.issue.suggestion { border-left: 3px solid #e0a53a; }
+.issue.warning { border-left: 3px solid #d05050; }
+footer { padding: 8px 12px; background: #fff; border-top: 1px solid #ddd; display: flex; gap: 12px; align-items: center; }
+#gen-prompt { flex: 1; padding: 6px; }
+.stage-label { font-size: 13px; color: #555; }
+.side-note { font-size: 11px; color: #888; margin-top: 10px; }
+h3 { font-size: 15px; margin-bottom: 8px; }
